@@ -34,7 +34,7 @@ class Home extends Controller
     }
     function EditUser(){
         $user=$this->model("User");
-        $result=$user->UpdateById($_POST["id"],$_POST["name"],$_POST["email"],$_POST["password"]);
+        $result=$user->UpdateById($_POST["id"],preg_replace('([\s]+)', ' ', $_POST["name"]),$_POST["email"],$_POST["password"]);
         $result=$user->getById($_POST["id"]);
         $_SESSION['email']=$_POST['email'];
         $_SESSION['password']=$_POST['password'];

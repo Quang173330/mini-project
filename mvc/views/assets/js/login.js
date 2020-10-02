@@ -43,6 +43,7 @@ function sendRequest() {
             data: { email: email, password: password,rememberme : rememberme },// passing the values
             success: function (res) {
                 result= JSON.parse(res)
+                console.log("hi")
                 console.log(result)
 //                window.location.href = "http://localhost/mini-project/Home/profileuser";
             }

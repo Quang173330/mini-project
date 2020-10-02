@@ -9,8 +9,8 @@ class Register extends Controller
     {
         if (isset($_POST["email"])) {
             $user = $this->model("User");
-            $name = $_POST["name"];
-            $password = $_POST["password"];
+            $name = preg_replace('([\s]+)', ' ', $_POST["name"]);
+            $password = md5($_POST["password"]);
             $email = $_POST["email"];
             $age = $_POST["age"];
             $result = $user->getByEmail($email);

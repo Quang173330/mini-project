@@ -11,12 +11,14 @@
         function logina(){
             if(isset($_POST["email"])){
                 $email=$_POST["email"];
-                $password=$_POST["password"];
+                $password= md5($_POST["password"]);
+                echo $password;
                 $user=$this->model("User");
                 $result=$user->getByEmail($email);
                 if($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
-                        if($password===$row["password"]){
+                        
+                        if($password==$row["password"]){
                             if($_POST["rememberme"]==="true"){
                                 $cookie=$this->generateRandomString(32);
                                 setcookie("cookie",$cookie,time()+86400*30,'/');
