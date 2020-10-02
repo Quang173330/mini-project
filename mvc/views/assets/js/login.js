@@ -39,7 +39,7 @@ function sendRequest() {
     if (cpass && cemail) {
         $.ajax({
             type: "POST",  //type of method
-            url: "http://localhost/mini-project/Login/logina",  //your page
+            url: "http://localhost:8080/mini-project/Login/logina",  //your page
             data: { email: email, password: password,rememberme : rememberme },// passing the values
             success: function (res) {
                 result= JSON.parse(res)

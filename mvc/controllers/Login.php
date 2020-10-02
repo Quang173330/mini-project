@@ -3,7 +3,7 @@
         function a(){
             $check= $this->checkss();
             if($check){
-                header("Location:http://localhost/mini-project/Home/profileuser");
+                header("Location:http://localhost:8080/mini-project/Home/profileuser");
             } else{
                 $this->view("login");
             }
@@ -50,10 +50,7 @@
                 $resarray["status"]="false";
                 $resarray["message"]="Submit failed";
                 echo json_encode($resarray);
-            }
-
-
-    
+            }   
         }
         function generateRandomString($length) {
             $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

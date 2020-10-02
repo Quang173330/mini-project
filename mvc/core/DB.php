@@ -5,7 +5,7 @@ class DB{
     public $con;
     protected $servername = "localhost";
     protected $username = "root";
-    protected $password = "1234";
+    protected $password = "";
     protected $dbname = "mini-project";
 
     function __construct(){

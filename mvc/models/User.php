@@ -29,6 +29,13 @@ class User extends DB{
         $sql="UPDATE Users SET cookie = '$cookie' where email = '$email'";
         return mysqli_query($this->con,$sql);
     }
-
+    function getByIdOrEmail($param){
+        $sql="SELECT * FROM Users WHERE email='$param' OR id ='$param'";
+        return mysqli_query($this->con,$sql);
+    }
+    function UpdateById($id,$name, $email,$password){
+        $sql="UPDATE Users SET name = '$name', email = '$email', password='$password' WHERE id='$id';";
+        return mysqli_query($this->con,$sql);
+    }
 }
 ?>
