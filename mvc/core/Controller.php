@@ -28,10 +28,12 @@ class Controller{
                 $row = $result->fetch_assoc();
                 $_SESSION["email"]=$row["email"];
                 $_SESSION["password"]=$row["password"];
-                if($row["permits"]===1){
+                if($row["permits"]==1){
                     $_SESSION["permits"]="1";
                     return "admin";
-                }else return "user";
+                }else {
+                    return "user";
+                }
             } else return "false";
         } else return "false";
     }

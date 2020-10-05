@@ -3,7 +3,6 @@ class App{
     protected $controller="Home";
     protected $action="";
     protected $params=[];
-
     function __construct(){
  
         $arr = $this->UrlProcess();
@@ -13,6 +12,7 @@ class App{
             $this->controller = $arr[0];
             unset($arr[0]);
         }
+
         require_once "./mvc/controllers/". $this->controller .".php";
         $this->controller = new $this->controller;
 

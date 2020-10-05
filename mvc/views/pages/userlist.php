@@ -32,9 +32,7 @@ include 'header.php';
                         <td><?php echo $row['email']; ?> <br>                       
                         <td>                     
                           <a class="btn btn-success btn-sm " href="../Home/ViewUser/<?php echo $row["id"];?>">View</a>
-                          <a class="btn btn-info btn-sm " href="../Home/Edit/<?php echo $row["id"];?>">Edit</a>
                           <a class="btn btn-danger btn-sm " href="http://localhost/mini-project/Home/Delete/<?php echo $row["id"];?>">Delete</a>
-                          
                         </td>
                       </tr>
                     <?php } ?>

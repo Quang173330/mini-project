@@ -42,7 +42,7 @@
             if(isset($_SESSION["email"])){
           ?>
           <li class="nav-item">
-            <a class="nav-link" href="../Home/profileUser/"><i class="fab fa-500px mr-2"></i>Profile <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="../Home/profileUser"><i class="fab fa-500px mr-2"></i>Profile <span class="sr-only">(current)</span></a>
           </li>
 
           <li class="nav-item">

@@ -29,17 +29,24 @@ class User extends DB{
         return mysqli_query($this->con,$sql);
     }
     function getByIdOrEmail($param){
-        $sql="SELECT * FROM Users WHERE email='$param' OR id ='$param'";
+        $sql="SELECT * FROM users WHERE email='$param' OR id ='$param'";
         return mysqli_query($this->con,$sql);
     }
     function UpdateById($id,$name, $email,$password){
-        $sql="UPDATE Users SET name = '$name', email = '$email', password='$password' WHERE id='$id';";
+        $sql="UPDATE users SET name = '$name', email = '$email', password='$password' WHERE id='$id'";
         return mysqli_query($this->con,$sql);
     }
     function DeleteById($param){
         $sql="DELETE FROM users WHERE id ='$param'";
         return mysqli_query($this->con,$sql);
     }
-    
+    function updatePassword($email,$password){
+        $sql="UPDATE users SET password='$password' where email='$email'";
+        return mysqli_query($this->con,$sql);
+    }
+    function updateProfileByEmail($email1,$email,$name,$age){
+        $sql="UPDATE users SET name='$name',email='$email',age=$age where email='$email1'";
+        return mysqli_query($this->con,$sql);
+    }
 }
 ?>
