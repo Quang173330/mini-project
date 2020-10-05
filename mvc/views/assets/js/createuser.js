@@ -140,7 +140,7 @@ function Register() {
                 if (status === "1") {
                     document.getElementById("mess_email").innerHTML = mess
                 } else {
-                    window.location.href = "http://localhost/mini-project/Home/profileUser";
+                    window.location.href = "http://localhost/mini-project/Home/UserList"
                 }
             }
         })

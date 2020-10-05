@@ -1,12 +1,9 @@
 let femail = document.getElementById("email");
 let fpass = document.getElementById("password");
-let fshow = document.getElementById("show");
 let fbutton = document.getElementById("button");
 let frem = document.getElementById("rememberme");
 
-
 fbutton.addEventListener("click", sendRequest);
-fshow.addEventListener("click", show);
 fpass.addEventListener("blur", valiPass);
 femail.addEventListener("blur", valiEmail);
 function a() {
@@ -39,13 +36,21 @@ function sendRequest() {
     if (cpass && cemail) {
         $.ajax({
             type: "POST",  //type of method
-            url: "http://localhost:8080/mini-project/Login/logina",  //your page
+            url: "http://localhost/mini-project/Login/loginuser",  //your page
             data: { email: email, password: password,rememberme : rememberme },// passing the values
             success: function (res) {
+                console.log(res)
                 result= JSON.parse(res)
-                console.log("hi")
                 console.log(result)
-//                window.location.href = "http://localhost/mini-project/Home/profileuser";
+                if(result.status==="1"){
+                    document.getElementById("mess_form").innerHTML=result.message
+                } else if (result.status==="2"){
+                    document.getElementById("mess_email").innerHTML=result.message
+                } else if(result.status==="3"){
+                    document.getElementById("mess_pass").innerHTML=result.message
+                } else {
+                    window.location.href = "http://localhost/mini-project/Login/a";
+                }               
             }
         })
     } else {

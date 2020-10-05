@@ -13,7 +13,7 @@
 <body>
     <div class="card ">
     <div class="card-header">
-      <h3 class='text-center'><i class="fas fa-sign-in-alt mr-2"></i>User login</h3>
+      <h3 class='text-center'><i class="fas fa-sign-in-alt mr-2"></i>Create User</h3>
     </div>
     <div class="card-body">
 
@@ -48,7 +48,7 @@
             <input type="text" id="age" name="age" class="form-control" placeholder="Age">
           </div>
           <div class="form-group">
-            <button type="button" id="button" name="register" class="btn btn-success">Register</button>
+            <button type="button" id="button" name="register" class="btn btn-success">Create User</button>
           </div>
 
 
@@ -59,7 +59,7 @@
     </div>
   </div>
 </body>
-<script src="http://localhost/mini-project/mvc/views/assets/js/register.js"></script>
+<script src="http://localhost/mini-project/mvc/views/assets/js/createuser.js"></script>
 
 </html>
 

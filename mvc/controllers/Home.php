@@ -7,8 +7,8 @@ class Home extends Controller
     }
     function homea(){
         $check= $this->checkss();
-        if($check){
-            header("Location:http://localhost:8080/mini-project/Home/profileuser");
+        if($check==="admin"||$check==="user"){
+            header("Location:http://localhost/mini-project/Home/profileuser");
         } else{
             $this->view("login");
         }
@@ -18,12 +18,16 @@ class Home extends Controller
         $this->view("login");
     }
     function profileuser(){
-        $param= $_SESSION["email"];
+        $check= $this->checkss();
+        if($check==="admin"||$check==="user"){
+            $param= $_SESSION["email"];
+            $user=$this->model("User");
+            $result=$user->getByEmail($param);
+            $this->view("profile",["data"=>$result]);
+        } else{
+            header("Location:http://localhost/mini-project/Login/a");
+        }
 
-        $user=$this->model("User");
-        $result=$user->getByEmail($param);
-           
-        $this->view("profile",["data"=>$result]);
     }
     function Edit($id){
         
@@ -42,33 +46,53 @@ class Home extends Controller
         header("location:../Home/profileuser");
         
     }
+    function AddUser(){
+        $check= $this->checkss();
+        if($check==="admin"){
+            $this->view("adduser");
+        } else if($check==="user"){
+            echo "Cút";
+        }
+        else{
+            header("Location:http://localhost/mini-project/Login/a");
+        }
+
+    }
     function Logout(){
-        
         session_destroy();
         setcookie("cookie", "", time() - 86400*30,"/");
-        $this->view("login");
         header("location:../Login/a");
-        
     }
     function UserList(){
-        
-        $user=$this->model("User");
-        $result=$user->getAll();
-           
-        $this->view("userlist",["data"=>$result]);
-        
+        $check= $this->checkss();
+        if($check==="admin"){
+            $user=$this->model("User");
+            $result=$user->getAll();
+            $this->view("userlist",["data"=>$result]);
+        } else if($check==="user"){
+            echo "Cút";
+        }
+        else{
+            header("Location:http://localhost/mini-project/Login/a");
+        }
+
     }
     function ViewUser($id){
-        
-        $user=$this->model("User");
-        $result=$user->getById($id);
-           
-        $this->view("profile",["data"=>$result]);
+        $check= $this->checkss();
+        if($check==="admin"){
+            $user=$this->model("User");
+            $result=$user->getById($id);
+            $this->view("profile",["data"=>$result]);
+        } else if($check==="user"){
+            echo "Cút";
+        }
+        else{
+            header("Location:http://localhost/mini-project/Login/a");
+        }
 
-        
+
     }
     function Delete($id){
-        
         $user=$this->model("User");
         $user->DeleteById($id);
         $result=$user->getAll();

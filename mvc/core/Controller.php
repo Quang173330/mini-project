@@ -15,8 +15,10 @@ class Controller{
             $user=$this->model("User");
             $result=$user->getByEmailAndPassword($email,$password);
             if($result->num_rows>0){
-                return true;
-            } else return false;
+                if(isset($_SESSION["permits"])){
+                    return "admin";
+                }else return "user";
+            } else return "false";
         }
         if(isset($_COOKIE["cookie"])){
             $cookie=$_COOKIE["cookie"];
@@ -26,9 +28,12 @@ class Controller{
                 $row = $result->fetch_assoc();
                 $_SESSION["email"]=$row["email"];
                 $_SESSION["password"]=$row["password"];
-                return true;
-            } else return false;
-        } else return false;
+                if($row["permits"]===1){
+                    $_SESSION["permits"]="1";
+                    return "admin";
+                }else return "user";
+            } else return "false";
+        } else return "false";
     }
 }
 ?>
