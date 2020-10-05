@@ -50,5 +50,31 @@ class Home extends Controller
         header("location:../Login/a");
         
     }
+    function UserList(){
+        
+        $user=$this->model("User");
+        $result=$user->getAll();
+           
+        $this->view("userlist",["data"=>$result]);
+        
+    }
+    function ViewUser($id){
+        
+        $user=$this->model("User");
+        $result=$user->getById($id);
+           
+        $this->view("profile",["data"=>$result]);
+
+        
+    }
+    function Delete($id){
+        
+        $user=$this->model("User");
+        $user->DeleteById($id);
+        $result=$user->getAll();
+           
+        $this->view("userlist",["data"=>$result]);
+        header("location:../UserList");
+    }
 
 }

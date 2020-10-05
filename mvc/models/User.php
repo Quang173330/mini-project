@@ -2,7 +2,7 @@
 class User extends DB{
     function newUser($name,$password,$email,$age,$permits){
         
-        $query="INSERT INTO Users (name,password,email,age,permits) Values ('".$name."','".$password."','".$email."',".$age.",".$permits.")";
+        $query="INSERT INTO users (name,password,email,age,permits) Values ('".$name."','".$password."','".$email."',".$age.",".$permits.")";
         mysqli_query($this->con,$query);
     }
     function getByEmail($email){
@@ -37,5 +37,10 @@ class User extends DB{
         $sql="UPDATE Users SET name = '$name', email = '$email', password='$password' WHERE id='$id';";
         return mysqli_query($this->con,$sql);
     }
+    function DeleteById($param){
+        $sql="DELETE FROM Users WHERE id ='$param'";
+        return mysqli_query($this->con,$sql);
+    }
+    
 }
 ?>

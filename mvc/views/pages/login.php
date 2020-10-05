@@ -23,8 +23,54 @@
     <input type="checkbox" id="rememberme" name="rememberme" /> Remember Me
     
     <button type="button" id="button" name="login">Sign In</button>
+    <br>
+    <br>
+    <button type="button" id="signup" name="login">Sign Up</button>
   </form>
 </body>
 <script src="http://localhost:8080/mini-project/mvc/views/assets/js/login.js"></script>
 
 </html>
+
+
+<!-- <?php
+// include 'header.php';
+
+?>
+
+
+
+
+<div class="card ">
+  <div class="card-header">
+          <h3 class='text-center'><i class="fas fa-sign-in-alt mr-2"></i>User login</h3>
+        </div>
+        <div class="card-body">
+
+
+            <div style="width:450px; margin:0px auto">
+
+            <form class="" action="" method="post">
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input type="email" id="email" name="email"  class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" id="password" name="password"  class="form-control">
+
+                </div>
+                <input type="checkbox" id="rememberme" name="rememberme" /> Remember Me 
+                <br>
+                <div class="form-group">
+                  <button type="button" id="button" name="login" class="btn btn-success">Login</button>
+                </div>
+
+
+            </form>
+          </div>
+
+
+        </div>
+      </div>
+      <script src="http://localhost:8080/mini-project/mvc/views/assets/js/login.js"></script> -->

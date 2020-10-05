@@ -8,6 +8,7 @@
                 $this->view("login");
             }
         }
+         
         function logina(){
             if(isset($_POST["email"])){
                 $email=$_POST["email"];
