@@ -8,7 +8,7 @@ class Home extends Controller
     function homea(){
         $check= $this->checkss();
         if($check==="admin"||$check==="user"){
-            header("Location:http://localhost/mini-project/Home/profileuser");
+            header("Location:http://localhost:8080/mini-project/Home/profileuser");
         } else{
             $this->view("login");
         }
@@ -25,7 +25,7 @@ class Home extends Controller
             $result=$user->getByEmail($param);
             $this->view("profile",["data"=>$result]);
         } else{
-            header("Location:http://localhost/mini-project/Login/a");
+            header("Location:http://localhost:8080/mini-project/Login/a");
         }
 
     }
@@ -38,10 +38,10 @@ class Home extends Controller
     function EditUser(){
         $user=$this->model("User");
         $email=$_POST["email"];
-        $name=$_POST["name"];
+        $name=preg_replace('([\s]+)', ' ', $_POST["name"]);
         $age=$_POST["age"];
         if($email===$_SESSION["email"]){
-            $user->updateProfileByEmail($email,$name,$age);
+            $user->updateProfileByEmail($email,$email,$name,$age);
             $resarray["status"]="true";
             $resarray["message"]="Update success";
             echo json_encode($resarray);
@@ -69,7 +69,7 @@ class Home extends Controller
             echo "Cút";
         }
         else{
-            header("Location:http://localhost/mini-project/Login/a");
+            header("Location:http://localhost:8080/mini-project/Login/a");
         }
 
     }
@@ -88,7 +88,7 @@ class Home extends Controller
             echo "Cút";
         }
         else{
-            header("Location:http://localhost/mini-project/Login/a");
+            header("Location:http://localhost:8080/mini-project/Login/a");
         }
 
     }
@@ -97,12 +97,12 @@ class Home extends Controller
         if($check==="admin"){
             $user=$this->model("User");
             $result=$user->getById($id);
-            $this->view("profile",["data"=>$result]);
+            $this->view("userprofile",["data"=>$result]);
         } else if($check==="user"){
             echo "Cút";
         }
         else{
-            header("Location:http://localhost/mini-project/Login/a");
+            header("Location:http://localhost:8080/mini-project/Login/a");
         }
 
 
@@ -118,7 +118,7 @@ class Home extends Controller
         if($check==="admin"||$check==="user"){
             $this->view("changepassword");
         } else{
-            header("Location:http://localhost/mini-project/Home/profileuser");
+            header("Location:http://localhost:8080/mini-project/Home/profileuser");
         }
     }
     function ChangePassword(){
@@ -142,6 +142,21 @@ class Home extends Controller
                 }
             }
         }
+    }
+    function npass(){
+        $check= $this->checkss();
+        if($check==="admin"||$check==="user"){
+            $id = $_POST['id'];
+            $this->view("newpass",["data"=>$id]);
+        } else{
+            header("Location:http://localhost:8080/mini-project/Home/profileuser");
+        }
+    }
+    function NewPassword(){
+        $user=$this->model("User");
+        $user->NewPasswordById($_POST['id'],md5($_POST['new_password']));
+        $result=$user->getById($_POST['id']);
+        $this->view("userprofile",["data"=>$result]);
     }
 
 }

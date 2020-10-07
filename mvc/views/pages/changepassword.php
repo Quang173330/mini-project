@@ -4,7 +4,7 @@ include 'header.php';
 
 <div class="card ">
     <div class="card-header">
-      <h3>Change Password <span class="float-right"> <a href="index.php" class="btn btn-primary">Back</a> </h3>
+      <h3 class='text-center'><i class="fab fa-500px mr-2"></i></i>Change Password</h3>
     </div>
     <div class="card-body">
       <div style="width:600px; margin:0px auto">
@@ -31,4 +31,4 @@ include 'header.php';
       </div>
     </div>
   </div>
-  <script src="http://localhost/mini-project/mvc/views/assets/js/changepassword.js"></script>
+  <script src="http://localhost:8080/mini-project/mvc/views/assets/js/changepassword.js"></script>

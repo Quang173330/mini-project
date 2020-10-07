@@ -130,7 +130,7 @@ function Register() {
     if (cpass && cemail && crepass && cname && cage) {
         $.ajax({
             type: "POST",  //type of method
-            url: "http://localhost/mini-project/Register/registera",  //your page
+            url: "http://localhost:8080/mini-project/Register/registera",  //your page
             data: { name: name, email: email, password: password, age: age },// passing the values
             success: function (res) {
                 console.log(res)
@@ -140,7 +140,7 @@ function Register() {
                 if (status === "1") {
                     document.getElementById("mess_email").innerHTML = mess
                 } else {
-                    window.location.href = "http://localhost/mini-project/Home/profileUser";
+                    window.location.href = "http://localhost:8080/mini-project/Home/profileUser";
                 }
             }
         })

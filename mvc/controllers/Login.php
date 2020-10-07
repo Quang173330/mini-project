@@ -3,7 +3,7 @@
         function a(){
            $check= $this->checkss();
            if($check==="admin"||$check==="user"){
-              header("Location:http://localhost/mini-project/Home/profileuser");
+              header("Location:http://localhost:8080/mini-project/Home/profileuser");
             } else{
                 $this->view("login");
             }

@@ -48,5 +48,9 @@ class User extends DB{
         $sql="UPDATE users SET name='$name',email='$email',age=$age where email='$email1'";
         return mysqli_query($this->con,$sql);
     }
+    function NewPasswordById($id,$password){
+        $sql="UPDATE users SET password='$password' where id='$id'";
+        return mysqli_query($this->con,$sql);
+    }
 }
 ?>

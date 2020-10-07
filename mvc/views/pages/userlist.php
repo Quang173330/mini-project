@@ -2,6 +2,20 @@
 include 'header.php';
 
 ?>
+<script>
+function Delete($id) {
+  var txt;
+  var r = confirm("Do you to delete user have id = "+$id);
+  if (r == true) {
+    window.location.href = "http://localhost:8080/mini-project/Home/Delete/"+$id;
+  } else {
+    window.location.href = "http://localhost:8080/mini-project/Home/UserList";
+  }
+  document.getElementById("demo").innerHTML = txt;
+}
+
+
+</script>
 
       <div class="card ">
         <div class="card-header">
@@ -32,7 +46,7 @@ include 'header.php';
                         <td><?php echo $row['email']; ?> <br>                       
                         <td>                     
                           <a class="btn btn-success btn-sm " href="../Home/ViewUser/<?php echo $row["id"];?>">View</a>
-                          <a class="btn btn-danger btn-sm " href="http://localhost/mini-project/Home/Delete/<?php echo $row["id"];?>">Delete</a>
+                          <a class="btn btn-danger btn-sm " onclick="Delete(<?php echo $row["id"];?>)">Delete</a>
                         </td>
                       </tr>
                     <?php } ?>

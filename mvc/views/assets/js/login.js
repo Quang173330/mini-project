@@ -36,7 +36,7 @@ function sendRequest() {
     if (cpass && cemail) {
         $.ajax({
             type: "POST",  //type of method
-            url: "http://localhost/mini-project/Login/loginuser",  //your page
+            url: "http://localhost:8080/mini-project/Login/loginuser",  //your page
             data: { email: email, password: password,rememberme : rememberme },// passing the values
             success: function (res) {
                 console.log(res)
@@ -49,7 +49,7 @@ function sendRequest() {
                 } else if(result.status==="3"){
                     document.getElementById("mess_pass").innerHTML=result.message
                 } else {
-                    window.location.href = "http://localhost/mini-project/Login/a";
+                    window.location.href = "http://localhost:8080/mini-project/Login/a";
                 }               
             }
         })

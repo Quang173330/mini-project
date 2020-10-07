@@ -13,7 +13,7 @@
 <body>
     <div class="card ">
     <div class="card-header">
-      <h3 class='text-center'><i class="fas fa-sign-in-alt mr-2"></i>Create User</h3>
+      <h3 class='text-center'><i class="fas fa-user-plus mr-2"></i></i>Add User</h3>
     </div>
     <div class="card-body">
 
@@ -59,7 +59,7 @@
     </div>
   </div>
 </body>
-<script src="http://localhost/mini-project/mvc/views/assets/js/createuser.js"></script>
+<script src="http://localhost:8080/mini-project/mvc/views/assets/js/createuser.js"></script>
 
 </html>
 

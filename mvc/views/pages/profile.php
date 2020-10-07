@@ -6,7 +6,7 @@ include 'header.php';
 ?>
  <div class="card ">
     <div class="card-header">
-      <h3>User Profile <span class="float-right"> <a href="index.php" class="btn btn-primary">Back</a> </h3>
+      <h3 class='text-center'><i class="fab fa-500px mr-2"></i></i>My Profile</h3>
     </div>
     <div class="card-body">
       <div style="width:600px; margin:0px auto">
@@ -28,10 +28,10 @@ include 'header.php';
           </div>
           <div class="form-group">
             <button type="button" id="update" name="update" class="btn btn-success">Update</button>
-            <a class="btn btn-primary" href="http://localhost/mini-project/Home/cpass">Password change</a>
+            <a class="btn btn-primary" href="http://localhost:8080/mini-project/Home/cpass">Password change</a>
           </div>
         </form>
       </div>
     </div>
   </div>
-  <script src="http://localhost/mini-project/mvc/views/assets/js/profile.js"></script>
+  <script src="http://localhost:8080/mini-project/mvc/views/assets/js/profile.js"></script>

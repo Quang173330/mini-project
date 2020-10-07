@@ -80,7 +80,7 @@ function Update() {
     if (cemail && cname && cage) {
         $.ajax({
             type: "POST",  //type of method
-            url: "http://localhost/mini-project/Home/EditUser",  //your page
+            url: "http://localhost:8080/mini-project/Home/EditUser",  //your page
             data: { name: name, email: email, age: age },// passing the values
             success: function (res) {
                 console.log(res)
@@ -90,7 +90,9 @@ function Update() {
                 if (status === "false") {
                     document.getElementById("mess_email").innerHTML = mess
                 } else {
-                    window.location.href = "http://localhost/mini-project/Home/profileUser";
+                //    window.location.href = "http://localhost:8080/mini-project/Home/profileUser";
+                console.log(result)
+                console.log(typeof result)
                 }
             }
         })

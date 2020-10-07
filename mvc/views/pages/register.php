@@ -59,7 +59,7 @@
     </div>
   </div>
 </body>
-<script src="http://localhost/mini-project/mvc/views/assets/js/register.js"></script>
+<script src="http://localhost:8080/mini-project/mvc/views/assets/js/register.js"></script>
 
 </html>
 
