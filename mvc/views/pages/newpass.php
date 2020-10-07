@@ -8,7 +8,7 @@ include 'header.php';
     </div>
     <div class="card-body">
       <div style="width:600px; margin:0px auto">
-        <form  action="http://localhost:8080/mini-project/Home/NewPassword" method="POST">
+        <form  action="" method="">
           <div class="form-group">
             <label for="new_password">New Password</label>
             <span id="mess_new" class="span" ></span>
@@ -16,10 +16,11 @@ include 'header.php';
           </div>            
              <input type="hidden" name="id" id="id" class="form-control" value="<?php echo $data['data']; ?>">         
           <div class="form-group">
-            <button type="submit" id="change_password" class="btn btn-primary" >Password change</a>
+            <button type="button" id="change_password" class="btn btn-primary" >Password change</a>
           </div>
         </form>
       </div>
     </div>
   </div>
   
+  <script src="http://localhost/mini-project/mvc/views/assets/js/newpassword.js"></script>

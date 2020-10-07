@@ -28,10 +28,10 @@ include 'header.php';
           </div>
           <div class="form-group">
             <button type="button" id="update" name="update" class="btn btn-success">Update</button>
-            <a class="btn btn-primary" href="http://localhost:8080/mini-project/Home/cpass">Password change</a>
+            <a class="btn btn-primary" href="http://localhost/mini-project/Home/cpass">Password change</a>
           </div>
         </form>
       </div>
     </div>
   </div>
-  <script src="http://localhost:8080/mini-project/mvc/views/assets/js/profile.js"></script>
+  <script src="http://localhost/mini-project/mvc/views/assets/js/profile.js"></script>

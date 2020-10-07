@@ -4,10 +4,10 @@
 <head>
   <meta charset="utf-8">
   <title>PHP CRUD User Management</title>
-  <link rel="stylesheet" href="http://localhost:8080/mini-project/mvc/views/assets/bootstrap.min.css">
+  <link rel="stylesheet" href="http://localhost/mini-project/mvc/views/assets/bootstrap.min.css">
   <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
-  <link rel="stylesheet" href="http://localhost:8080/mini-project/mvc/views/assets/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="http://localhost:8080/mini-project/mvc/views/assets/style.css">
+  <link rel="stylesheet" href="http://localhost/mini-project/mvc/views/assets/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="http://localhost/mini-project/mvc/views/assets/style.css">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 
@@ -32,21 +32,21 @@
             if(isset($_SESSION["permits"])){
           ?>
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost:8080/mini-project/Home/UserList"><i class="fas fa-users mr-2"></i>User lists </span></a>
+            <a class="nav-link" href="http://localhost/mini-project/Home/UserList"><i class="fas fa-users mr-2"></i>User lists </span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost:8080/mini-project/Home/AddUser"><i class="fas fa-user-plus mr-2"></i>Add user </span></a>
+            <a class="nav-link" href="http://localhost/mini-project/Home/AddUser"><i class="fas fa-user-plus mr-2"></i>Add user </span></a>
           </li>
           <?php } ?>
           <?php 
             if(isset($_SESSION["email"])){
           ?>
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost:8080/mini-project/Home/profileUser"><i class="fab fa-500px mr-2"></i>Profile <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="http://localhost/mini-project/Home/profileUser"><i class="fab fa-500px mr-2"></i>Profile <span class="sr-only">(current)</span></a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost:8080/mini-project/Home/Logout"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a>
+            <a class="nav-link" href="http://localhost/mini-project/Home/Logout"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a>
           </li>
           <?php } ?>
           <?php 

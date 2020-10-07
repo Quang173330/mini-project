@@ -14,11 +14,19 @@ fbutton.addEventListener("click", Register);
 
 function valiName() {
     let name = fname.value;
-    if (name == "") {
-        document.getElementById("mess_name").innerHTML = "Name is required "
-    } else if (name.length < 6) {
-        document.getElementById("mess_name").innerHTML = "Please lengthen this text to 6 characters or more "
-    } else {
+    console.log(name)
+    name=regularname(name);
+    fname.value=name
+    console.log(name)
+    let vali = checkName(name)
+    if (vali == 1) {
+        document.getElementById("mess_name").innerHTML = "Name is required"
+    } else if(vali==2){
+        document.getElementById("mess_name").innerHTML = "Please lengthen this text to 6 characters or more"
+    } else if(vali==3){
+        document.getElementById("mess_name").innerHTML = "Name is invalid"
+
+    } else  {
         document.getElementById("mess_name").innerHTML = ""
     }
 }
@@ -48,10 +56,14 @@ function valiRePass() {
 }
 
 function valiEmail() {
-    let email = femail.value
+    let email = femail.value;
+    email=regularemail(email);
+    femail.value=email
     let vali = checkEmail(email)
     if (vali == 1) {
         document.getElementById("mess_email").innerHTML = "Email is required"
+    } else if(vali==2){
+        document.getElementById("mess_email").innerHTML = "Email is invalid"
     } else {
         document.getElementById("mess_email").innerHTML = ""
     }
@@ -62,7 +74,9 @@ function valiAge() {
     let vali = checkAge(age)
     if (vali == 1) {
         document.getElementById("mess_age").innerHTML = "Age is required"
-    } else {
+    } else if(vali==2){
+        document.getElementById("mess_age").innerHTML = "Please type a number"
+    } else  {
         document.getElementById("mess_age").innerHTML = ""
     }
 }
@@ -96,26 +110,31 @@ function Register() {
         cpass = true;
     }
     // check email
-    if (vemail === 1) {
+    if (vemail == 1) {
         document.getElementById("mess_email").innerHTML = "Email is required"
-    }
-    else {
+    } else if(vemail==2){
+        document.getElementById("mess_email").innerHTML = "Email is invalid"
+    } else {
         document.getElementById("mess_email").innerHTML = ""
-        cemail = true;
+        cemail=true
     }
     // check name 
     if (vname == 1) {
         document.getElementById("mess_name").innerHTML = "Name is required"
-    } else if (vname == 2) {
+    } else if(vname==2){
         document.getElementById("mess_name").innerHTML = "Please lengthen this text to 6 characters or more"
-    } else {
+    } else if(vname==3){
+        document.getElementById("mess_name").innerHTML = "Name is invalid"
+    } else  {
         document.getElementById("mess_name").innerHTML = ""
-        cname = true
+        cname=true
     }
     //check age 
     if (vage == 1) {
         document.getElementById("mess_age").innerHTML = "Age is required"
-    } else {
+    } else if(vage==2){
+        document.getElementById("mess_age").innerHTML = "Please type a number"
+    } {
         document.getElementById("mess_age").innerHTML = ""
         cage = true
     }
@@ -130,7 +149,7 @@ function Register() {
     if (cpass && cemail && crepass && cname && cage) {
         $.ajax({
             type: "POST",  //type of method
-            url: "http://localhost:8080/mini-project/Register/registera",  //your page
+            url: "http://localhost/mini-project/Register/registera",  //your page
             data: { name: name, email: email, password: password, age: age },// passing the values
             success: function (res) {
                 console.log(res)
@@ -140,7 +159,7 @@ function Register() {
                 if (status === "1") {
                     document.getElementById("mess_email").innerHTML = mess
                 } else {
-                    window.location.href = "http://localhost:8080/mini-project/Home/profileUser";
+                    window.location.href = "http://localhost/mini-project/Home/profileUser";
                 }
             }
         })
@@ -154,7 +173,11 @@ function checkEmail(email) {
     if (email.length == 0) {
         return 1
     } else {
-        return 2
+        const str = /[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\? ]/g
+        if(str.test(email)){
+            return 2
+        }
+        return 3
     }
 }
 
@@ -173,7 +196,13 @@ function checkName(name) {
         return 1;
     } else if (name.length < 6) {
         return 2;
-    } else return 3;
+    } else {
+        const str = /[~`!@\.#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g
+        if(str.test(name)){
+            return 3
+        }
+        return 4
+    } 
 }
 
 function checkRePassword(password1, password2) {
@@ -184,5 +213,20 @@ function checkRePassword(password1, password2) {
 function checkAge(age) {
     if (age.length == 0) {
         return 1;
-    } else return 2;
+    } else{
+        const str = /^[0-9]+$/
+        if(!str.test(age)){
+            return 2;
+        }
+        return 3;
+    } 
+}
+
+function regularemail(str){
+    let str1 = str.trim();
+    return str1.replace(/\s/g,'');
+}
+function regularname(str){
+    let str1 = str.trim();
+    return str1.replace(/\s+/g,' ');
 }

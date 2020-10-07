@@ -3,6 +3,8 @@ class Register extends Controller
 {
     function a()
     {
+        setcookie("cookie", "", time() - 86400*30,"/");
+        session_unset();
         $this->view("register");
     }
     function registera()

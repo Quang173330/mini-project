@@ -73,7 +73,7 @@ function submit () {
     if(c_old&&c_new&&c_retype){
         $.ajax({
             type: "POST",  //type of method
-            url: "http://localhost:8080/mini-project/Home/ChangePassword",  //your page
+            url: "http://localhost/mini-project/Home/ChangePassword",  //your page
             data: { old_password:old_password,password:new_password },// passing the values
             success: function (res) {
                 console.log(res)
@@ -83,7 +83,7 @@ function submit () {
                 if (status === "false") {
                     document.getElementById("mess_old").innerHTML = message
                 } else {
-                    window.location.href = "http://localhost:8080/mini-project/Home/profileUser";
+                    window.location.href = "http://localhost/mini-project/Home/profileUser";
                 }
             }
         })

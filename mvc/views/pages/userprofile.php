@@ -10,7 +10,7 @@ include 'header.php';
     </div>
     <div class="card-body">
       <div style="width:600px; margin:0px auto">
-        <form  action="http://localhost:8080/mini-project/Home/npass" method="POST">
+        <form  action="http://localhost/mini-project/Home/npass" method="POST">
           <div class="form-group">
             <label for="name">User name</label>
             <span id="mess_name" class="span"></span>

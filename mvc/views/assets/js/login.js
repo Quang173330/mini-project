@@ -28,6 +28,8 @@ function sendRequest() {
     }
     if (vemail === 1) {
         document.getElementById("mess_email").innerHTML = "Email is required"
+    } else if(vemail===2){
+        document.getElementById("mess_email").innerHTML = "Email is valid"
     }
     else {
         document.getElementById("mess_email").innerHTML = ""
@@ -36,7 +38,7 @@ function sendRequest() {
     if (cpass && cemail) {
         $.ajax({
             type: "POST",  //type of method
-            url: "http://localhost:8080/mini-project/Login/loginuser",  //your page
+            url: "http://localhost/mini-project/Login/loginuser",  //your page
             data: { email: email, password: password,rememberme : rememberme },// passing the values
             success: function (res) {
                 console.log(res)
@@ -49,7 +51,7 @@ function sendRequest() {
                 } else if(result.status==="3"){
                     document.getElementById("mess_pass").innerHTML=result.message
                 } else {
-                    window.location.href = "http://localhost:8080/mini-project/Login/a";
+                    window.location.href = "http://localhost/mini-project/Login/a";
                 }               
             }
         })
@@ -72,9 +74,13 @@ function valiPass() {
 }
 function valiEmail() {
     let email = femail.value;
+    email=regularemail(email);
+    femail.value=email
     let vali = checkEmail(email)
     if (vali == 1) {
         document.getElementById("mess_email").innerHTML = "Email is required"
+    } else if(vali ==2){
+        document.getElementById("mess_email").innerHTML = "Email is invalid"
     }
     else {
         document.getElementById("mess_email").innerHTML = ""
@@ -89,10 +95,14 @@ function show() {
     }
 }
 function checkEmail(email) {
+    const str = /[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\? ]/g
     if (email.length == 0) {
         return 1
     } else {
-        return 2
+        if(str.test(email)){
+            return 2;
+        }
+        return 3
     }
 }
 function checkPassword(password) {
@@ -103,4 +113,12 @@ function checkPassword(password) {
     } else {
         return 3;
     }
+}
+function regularemail(str){
+    let str1 = str.trim();
+    return str1.replace(/\s/g,'');
+}
+function regularname(str){
+    let str1 = str.trim();
+    return str1.replace(/\s/g,' ');
 }
