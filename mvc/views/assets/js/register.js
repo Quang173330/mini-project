@@ -57,8 +57,6 @@ function valiRePass() {
 
 function valiEmail() {
     let email = femail.value;
-    email=regularemail(email);
-    femail.value=email
     let vali = checkEmail(email)
     if (vali == 1) {
         document.getElementById("mess_email").innerHTML = "Email is required"
@@ -156,7 +154,7 @@ function Register() {
                 result= JSON.parse(res)
                 let status = result.status
                 let mess = result.mess
-                if (status === "1") {
+                if (status === "1"||status==="3") {
                     document.getElementById("mess_email").innerHTML = mess
                 } else {
                     window.location.href = "http://localhost/mini-project/Home/profileUser";
@@ -214,12 +212,14 @@ function checkAge(age) {
     if (age.length == 0) {
         return 1;
     } else{
-        const str = /^[0-9]+$/
-        if(!str.test(age)){
-            return 2;
-        }
         return 3;
-    } 
+    }
+    //     const str = /^[0-9]+$/
+    //     if(!str.test(age)){
+    //         return 2;
+    //     }
+    //     return 3;
+    // } 
 }
 
 function regularemail(str){

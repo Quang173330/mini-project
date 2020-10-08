@@ -9,7 +9,11 @@ class Register extends Controller
     }
     function registera()
     {
-        if (isset($_POST["email"])) {
+        if ($this->validateEmail($_POST["email"])&&
+            $this->validateName($_POST["name"])&&
+            $this->validatePassword($_POST["password"])&&
+            $this->validateDate($_POST["age"])) {
+
             $user = $this->model("User");
             $name = preg_replace('([\s]+)', ' ', $_POST["name"]);
             $password = md5($_POST["password"]);
@@ -29,6 +33,10 @@ class Register extends Controller
                 $res_array['mess']="Success";
                 echo json_encode($res_array);
             }
+        } else {
+            $res_array['status']="3";
+            $res_array['mess']=$this->validateName($_POST["name"]);
+            echo json_encode($res_array);
         }
     }
 }

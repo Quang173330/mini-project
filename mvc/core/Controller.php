@@ -37,5 +37,31 @@ class Controller{
             } else return "false";
         } else return "false";
     }
+    public function validateEmail($email){
+        if(strlen($email)==0){
+            return false;       
+        }else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    public function validateName($name){
+        if(strlen($name)<6){
+            return false;
+        }
+        else if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+            return false;
+        } else return true ;
+    }
+    public function validatePassword($password){
+        if(strlen($password)<6){
+            return false;
+        } else return true ;
+    }
+    function validateDate($date, $format = 'm-d-Y') {
+    $d = DateTime::createFromFormat($format, $date);
+    return $d && $d->format($format) == $date;
+    }
+
 }
-?>
