@@ -100,7 +100,7 @@ function Update() {
     if (cemail && cname && cage) {
         $.ajax({
             type: "POST",  //type of method
-            url: "http://localhost/mini-project/Home/EditUser",  //your page
+            url: "http://localhost:8080/mini-project/Home/EditUser",  //your page
             data: { name: name, email: email, age: age },// passing the values
             success: function (res) {
                 console.log(res)

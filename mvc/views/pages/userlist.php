@@ -7,9 +7,9 @@ function Delete($id) {
   var txt;
   var r = confirm("Do you to delete user have id = "+$id);
   if (r == true) {
-    window.location.href = "http://localhost/mini-project/Home/Delete/"+$id;
+    window.location.href = "http://localhost:8080/mini-project/Home/Delete/"+$id;
   } else {
-    window.location.href = "http://localhost/mini-project/Home/UserList";
+    window.location.href = "http://localhost:8080/mini-project/Home/UserList";
   }
   document.getElementById("demo").innerHTML = txt;
 }

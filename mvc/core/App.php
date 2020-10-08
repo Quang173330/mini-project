@@ -15,7 +15,7 @@ class App{
             $this->controller = $arr[0];
             unset($arr[0]);
         } else {
-            header("location:http://localhost/mini-project/Login/a");
+            header("location:http://localhost:8080/mini-project/Login/a");
         }
 
         require_once "./mvc/controllers/". $this->controller .".php";
@@ -28,10 +28,10 @@ class App{
                 unset($arr[1]);
             }
             else {
-                header("location:http://localhost/mini-project/Login/a");
+                header("location:http://localhost:8080/mini-project/Login/a");
             }
         } else {
-            header("location:http://localhost/mini-project/Login/a");
+            header("location:http://localhost:8080/mini-project/Login/a");
         }
 
         // Params

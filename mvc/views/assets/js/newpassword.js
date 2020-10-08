@@ -31,7 +31,7 @@ function submit () {
     if(c_new){
         $.ajax({
             type: "POST",  //type of method
-            url: "http://localhost/mini-project/Home/NewPassword",  //your page
+            url: "http://localhost:8080/mini-project/Home/NewPassword",  //your page
             data: { new_password : new_password, id : id },// passing the values
             success: function (res) {
                 console.log(res)
@@ -41,7 +41,7 @@ function submit () {
                 if (status === "false") {
                     document.getElementById("mess_new").innerHTML = message
                 } else {
-                    window.location.href = "http://localhost/mini-project/Home/ViewUser/"+id;
+                    window.location.href = "http://localhost:8080/mini-project/Home/ViewUser/"+id;
                 }
             }
         })
