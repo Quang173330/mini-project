@@ -1,7 +1,7 @@
 <?php
 class User extends DB{
     function newUser($name,$password,$email,$age,$permits){
-        $query="INSERT INTO users (name,password,email,age,permits) Values ('".$name."','".$password."','".$email."',".$age.",".$permits.")";
+        $query="INSERT INTO users (name,password,email,age,permits) Values ('".$name."','".$password."','".$email."','".$age."',".$permits.")";
         mysqli_query($this->con,$query);
     }
     function getByEmail($email){
@@ -45,7 +45,7 @@ class User extends DB{
         return mysqli_query($this->con,$sql);
     }
     function updateProfileByEmail($email1,$email,$name,$age){
-        $sql="UPDATE users SET name='$name',email='$email',age=$age where email='$email1'";
+        $sql="UPDATE users SET name='$name',email='$email',age='$age' where email='$email1'";
         return mysqli_query($this->con,$sql);
     }
     function NewPasswordById($id,$password){

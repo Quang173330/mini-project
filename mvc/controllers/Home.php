@@ -1,10 +1,6 @@
 <?php
 class Home extends Controller
 {
-    function SayHi()
-    {
-        echo "a";
-    }
     function homea(){
         $check= $this->checkss();
         if($check==="admin"||$check==="user"){
@@ -40,6 +36,9 @@ class Home extends Controller
         $email=$_POST["email"];
         $name=preg_replace('([\s]+)', ' ', $_POST["name"]);
         $age=$_POST["age"];
+        if($this->validateEmail($_POST["email"])&&
+            $this->validateName($_POST["name"])&&           
+            $this->validateDate($_POST["age"])){
         if($email===$_SESSION["email"]){
             $user->updateProfileByEmail($email,$email,$name,$age);
             $resarray["status"]="true";
@@ -59,7 +58,7 @@ class Home extends Controller
                 echo json_encode($resarray);
             }
         }
-
+    }
     }
     function AddUser(){
         $check= $this->checkss();
@@ -90,7 +89,6 @@ class Home extends Controller
         else{
             header("Location:http://localhost:8080/mini-project/Login/a");
         }
-
     }
     function ViewUser($id){
         $check= $this->checkss();
@@ -104,8 +102,6 @@ class Home extends Controller
         else{
             header("Location:http://localhost:8080/mini-project/Login/a");
         }
-
-
     }
     function Delete($id){
         $user=$this->model("User");

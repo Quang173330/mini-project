@@ -110,7 +110,7 @@ function Update() {
                 if (status === "false") {
                     document.getElementById("mess_email").innerHTML = mess
                 } else {
-                alert("hi")
+                alert("Update Successful")
                 window.location.href = "http://localhost:8080/mini-project/Home/profileUser";
                 }
             }
@@ -128,11 +128,11 @@ function checkEmail(email) {
     if (email.length == 0) {
         return 1
     } else {
-        const str = /[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\? ]/g
+        const str = /^(([^<>()\[\]\\.,;:\s@'"]+(\.[^<>()\[\]\\.,;:\s'@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         if(str.test(email)){
-            return 2
+            return 3
         }
-        return 3
+        return 2
     }
 }
 
@@ -154,12 +154,8 @@ function checkAge(age) {
     if (age.length == 0) {
         return 1;
     } else{
-        const str = /^[0-9]+$/
-        if(!str.test(age)){
-            return 2;
-        }
         return 3;
-    } 
+    }
 }
 
 function regularemail(str){

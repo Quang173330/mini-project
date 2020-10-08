@@ -154,8 +154,8 @@ function Register() {
                 result= JSON.parse(res)
                 let status = result.status
                 let mess = result.mess
-                if (status === "1"||status==="3") {
-                    document.getElementById("mess_email").innerHTML = mess
+                if (status !== "true") {
+                    document.getElementById(status).innerHTML = mess
                 } else {
                     window.location.href = "http://localhost:8080/mini-project/Home/profileUser";
                 }
@@ -171,11 +171,11 @@ function checkEmail(email) {
     if (email.length == 0) {
         return 1
     } else {
-        const str = /[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\? ]/g
+        const str = /^(([^<>()\[\]\\.,;:\s@'"]+(\.[^<>()\[\]\\.,;:\s'@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         if(str.test(email)){
-            return 2
+            return 3
         }
-        return 3
+        return 2
     }
 }
 
