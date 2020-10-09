@@ -156,10 +156,10 @@ function Register() {
                 result= JSON.parse(res)
                 let status = result.status
                 let mess = result.mess
-                if (status === "1") {
-                    document.getElementById("mess_email").innerHTML = mess
+                if (status !== "true") {
+                    document.getElementById(status).innerHTML = mess
                 } else {
-                    window.location.href = "http://localhost:8080/mini-project/Home/UserList"
+                    window.location.href = "http://localhost:8080/mini-project/Home/UserList;"
                 }
             }
         })

@@ -30,29 +30,29 @@ class Register extends Controller
                 $_SESSION["email"]=$email;
                 $_SESSION["password"]=$password;
                 $res_array['status']="true";
-                $res_array['mess']="Success";
+                $res_array['mess']="Update Successful";
                 echo json_encode($res_array);
             }
         } else {
             if(!$this->validateName($_POST["name"])) {
             $res_array['status']="mess_name";
-            $res_array['mess']="Name is invalid";
+            $res_array['mess']="Please enter correct name format";
             echo json_encode($res_array);
 
             }
             else if(!$this->validateEmail($_POST["email"])) {
             $res_array['status']="mess_email";
-            $res_array['mess']="Email is invalid";
+            $res_array['mess']="Please enter correct email format";
             echo json_encode($res_array);        
         }
             else if(!$this->validatePassword($_POST["password"])) {
             $res_array['status']="mess_pass";
-            $res_array['mess']="Pass is invalid";
+            $res_array['mess']="Please lengthen this text to 6 characters or more";
             echo json_encode($res_array);
         }
         else if(!$this->validateDate($_POST["age"])) {
             $res_array['status']="mess_age";
-            $res_array['mess']="Date is invalid";
+            $res_array['mess']="Please enter correct date format";
             echo json_encode($res_array);
         }
         }
