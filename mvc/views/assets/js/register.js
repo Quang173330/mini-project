@@ -150,6 +150,7 @@ function Register() {
             url: "http://localhost:8080/mini-project/Register/registera",  //your page
             data: { name: name, email: email, password: password, age: age },// passing the values
             success: function (res) {
+                console.log("a")
                 console.log(res)
                 result= JSON.parse(res)
                 let status = result.status

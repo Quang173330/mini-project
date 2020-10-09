@@ -10,7 +10,8 @@
         }
          
         function loginuser(){
-            if(isset($_POST["email"])){
+            if($this->validateEmail($_POST["email"])&&
+            $this->validatePassword($_POST["password"])){
                 $email=$_POST["email"];
                 $password= md5($_POST["password"]);
                 $user=$this->model("User");
@@ -27,8 +28,8 @@
                                 $_SESSION["email"]=$row["email"];
                                 $_SESSION["password"]=$row["password"];
                                 $result1 = $user->updateRandomByEmail($row["email"],$cookie);
-                                $resarray["status"]="5";
-                                $resarray["message"]=$_POST["rememberme"];
+                                $resarray["status"]="true";
+                                $resarray["mess"]="Login success";
                                 echo json_encode($resarray);
 
                             } else {
@@ -37,26 +38,33 @@
                                 }
                                 $_SESSION["email"]=$row["email"];
                                 $_SESSION["password"]=$row["password"];
-                                $resarray["status"]="4";
-                                $resarray["message"]="Login success";
+                                $resarray["status"]="true";
+                                $resarray["mess"]="Login success";
                                 echo json_encode($resarray);
                             }
 
                         } else{
-                            $resarray["status"]="3";
-                            $resarray["message"]="Password not matching";
+                            $resarray["status"]="mess_pass";
+                            $resarray["mess"]="Password not matching";
                             echo json_encode($resarray);
                         }
                     
                 }else {
-                    $resarray["status"]="2";
-                    $resarray["message"]="Email not exist";
+                    $resarray["status"]="mess_email";
+                    $resarray["mess"]="Email not exist";
                     echo json_encode($resarray);
                 }
             } else{
-                $resarray["status"]="1";
-                $resarray["message"]="Submit failed";
-                echo json_encode($resarray);
+                if(!$this->validateEmail($_POST["email"])) {
+                    $res_array['status']="mess_email";
+                    $res_array['mess']="Email is invalid";
+                    echo json_encode($res_array);        
+                }
+                    else if(!$this->validatePassword($_POST["password"])) {
+                    $res_array['status']="mess_pass";
+                    $res_array['mess']="Pass is invalid";
+                    echo json_encode($res_array);
+                }
             }   
         }
         function generateRandomString($length) {

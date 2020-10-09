@@ -39,26 +39,40 @@ class Home extends Controller
         if($this->validateEmail($_POST["email"])&&
             $this->validateName($_POST["name"])&&           
             $this->validateDate($_POST["age"])){
-        if($email===$_SESSION["email"]){
-            $user->updateProfileByEmail($email,$email,$name,$age);
-            $resarray["status"]="true";
-            $resarray["message"]="Update success";
-            echo json_encode($resarray);
-        } else  {
-            $result = $user->getByEmail($email);
-            if ($result->num_rows > 0) {
-                $resarray["status"]="false";
-                $resarray["message"]="Email is exist";
-                echo json_encode($resarray);
-            }else {
-                $user->updateProfileByEmail($_SESSION["email"],$email,$name,$age);
-                $_SESSION['email']=$email;
+            if($email===$_SESSION["email"]){
+                $user->updateProfileByEmail($email,$email,$name,$age);
                 $resarray["status"]="true";
-                $resarray["message"]="Update success";
+                $resarray["mess"]="Update success";
                 echo json_encode($resarray);
+            } else  {
+                $result = $user->getByEmail($email);
+                if ($result->num_rows > 0) {
+                    $resarray["status"]="mess_email";
+                    $resarray["mess"]="Email is exist";
+                    echo json_encode($resarray);
+                }else {
+                    $user->updateProfileByEmail($_SESSION["email"],$email,$name,$age);
+                    $_SESSION['email']=$email;
+                    $resarray["status"]="true";
+                    $resarray["mess"]="Update success";
+                    echo json_encode($resarray);
+                }
+            }
+        } else {
+            if(!$this->validateName($_POST["name"])) {
+                $res_array['status']="mess_name";
+                $res_array['mess']="Name is invalid";
+                echo json_encode($res_array);
+            } else if(!$this->validateEmail($_POST["email"])) {
+                $res_array['status']="mess_email";
+                $res_array['mess']="Email is invalid";
+                echo json_encode($res_array);        
+            } else if(!$this->validateDate($_POST["age"])) {
+                $res_array['status']="mess_age";
+                $res_array['mess']="Date is invalid";
+                echo json_encode($res_array);
             }
         }
-    }
     }
     function AddUser(){
         $check= $this->checkss();
@@ -118,7 +132,8 @@ class Home extends Controller
         }
     }
     function ChangePassword(){
-        if(isset($_POST["password"])){
+        if($this->validatePassword($_POST["password"])&&
+            $this->validatePassword($_POST["old_password"])){
             $password=md5($_POST["password"]);
             $old_password=md5($_POST["old_password"]);
             $email=$_SESSION["email"];
@@ -130,13 +145,23 @@ class Home extends Controller
                     $user->updatePassword($email,$password);
                     $_SESSION["password"]=$password;
                     $resarray["status"]="true";
-                    $resarray["message"]="Update Password Success";
+                    $resarray["mess"]="Update Password Success";
                     echo json_encode($resarray);
                 } else {
-                    $resarray["status"]="false";
-                    $resarray["message"]="Password is wrong";
+                    $resarray["status"]="mess_old";
+                    $resarray["mess"]="Password is wrong";
                     echo json_encode($resarray);
                 }
+            }
+        } else {
+            if(!$this->validatePassword($_POST["old_password"])) {
+                $res_array['status']="mess_old";
+                $res_array['mess']="Old password is invalid";
+                echo json_encode($res_array);
+            } else  if(!$this->validatePassword($_POST["password"])) {
+                $res_array['status']="mess_new";
+                $res_array['mess']="New password is invalid";
+                echo json_encode($res_array);
             }
         }
     }
@@ -150,17 +175,25 @@ class Home extends Controller
         }
     }
     function NewPassword(){
-        $user=$this->model("User");
-        try{
-            $user->NewPasswordById($_POST['id'],md5($_POST['new_password']));   
-            $resarray["status"]="true";
-            $resarray["message"]="Success";
-            echo json_encode($resarray);
-        } catch (Exception $e){
+        
+        if($this->validatePassword($_POST["new_password"])){
+            $user=$this->model("User");
+            try{
+                $user->NewPasswordById($_POST['id'],md5($_POST['new_password']));   
+                $resarray["status"]="true";
+                $resarray["mess"]="Success";
+                echo json_encode($resarray);
+            } catch (Exception $e){
+                $resarray["status"]="false";
+                $resarray["mess"]=$e;
+                echo json_encode($resarray);
+            }
+        } else {
             $resarray["status"]="false";
-            $resarray["message"]=$e;
+            $resarray["mess"]="New password is invalid";
             echo json_encode($resarray);
         }
+
     }
 
 }

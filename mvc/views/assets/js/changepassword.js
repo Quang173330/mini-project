@@ -79,10 +79,11 @@ function submit () {
                 console.log(res)
                 result= JSON.parse(res)
                 let status = result.status
-                let message = result.message
-                if (status === "false") {
-                    document.getElementById("mess_old").innerHTML = message
+                let mess = result.mess
+                if (status !== "true") {
+                    document.getElementById(status).innerHTML = mess
                 } else {
+                    alert(mess)
                     window.location.href = "http://localhost:8080/mini-project/Home/profileUser";
                 }
             }

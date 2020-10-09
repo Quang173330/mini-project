@@ -37,9 +37,9 @@ function submit () {
                 console.log(res)
                 result= JSON.parse(res)
                 let status = result.status
-                let message = result.message
+                let mess = result.mess
                 if (status === "false") {
-                    document.getElementById("mess_new").innerHTML = message
+                    document.getElementById("mess_new").innerHTML = mess
                 } else {
                     window.location.href = "http://localhost:8080/mini-project/Home/ViewUser/"+id;
                 }

@@ -106,11 +106,11 @@ function Update() {
                 console.log(res)
                 result= JSON.parse(res)
                 let status = result.status
-                let mess = result.message
-                if (status === "false") {
-                    document.getElementById("mess_email").innerHTML = mess
+                let mess = result.mess
+                if (status !== "true") {
+                    document.getElementById(status).innerHTML = mess
                 } else {
-                alert("Update Successful")
+                alert(mess);
                 window.location.href = "http://localhost:8080/mini-project/Home/profileUser";
                 }
             }

@@ -3,7 +3,7 @@
 class DB{
 
     public $con;
-    protected $servername = "localhost:8080";
+    protected $servername = "localhost:3306";
     protected $username = "root";
     protected $password = "";
     protected $dbname = "mini-project";

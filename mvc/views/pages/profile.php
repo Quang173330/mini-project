@@ -24,7 +24,7 @@ include 'header.php';
           <div class="form-group">
           <label for="email">Age</label>
           <span id="mess_age" class="span"></span>
-            <input type="text" id="age" name="age" value="<?php echo $row["age"];?>" class="form-control">
+            <input type="date" id="age" name="age" value="<?php echo $row["age"];?>" class="form-control">
           </div>
           <div class="form-group">
             <button type="button" id="update" name="update" class="btn btn-success">Update</button>

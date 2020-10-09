@@ -41,16 +41,13 @@ function sendRequest() {
             url: "http://localhost:8080/mini-project/Login/loginuser",  //your page
             data: { email: email, password: password, rememberme: rememberme },// passing the values
             success: function (res) {
+                console.log("a")
                 console.log(res)
                 result = JSON.parse(res)
                 console.log(result)
-                if (result.status === "1") {
-                    document.getElementById("mess_form").innerHTML = result.message
-                } else if (result.status === "2") {
-                    document.getElementById("mess_email").innerHTML = result.message
-                } else if (result.status === "3") {
-                    document.getElementById("mess_pass").innerHTML = result.message
-                } else {
+                if (result.status !== "true") {
+                    document.getElementById(result.status).innerHTML = result.mess
+                }else {
                     window.location.href = "http://localhost:8080/mini-project/Login/a";
                 }
             }
