@@ -58,8 +58,6 @@ function valiRePass() {
 
 function valiEmail() {
     let email = femail.value;
-    email=regularemail(email);
-    femail.value=email
     let vali = checkEmail(email)
     if (vali == 1) {
         document.getElementById("mess_email").innerHTML = "Email is required"
@@ -156,10 +154,10 @@ function Register() {
                 result= JSON.parse(res)
                 let status = result.status
                 let mess = result.mess
-                if (status === "1") {
-                    document.getElementById("mess_email").innerHTML = mess
+                if (status !== "true") {
+                    document.getElementById(status).innerHTML = mess
                 } else {
-                    window.location.href = "http://localhost:8080/mini-project/Home/UserList"
+                    window.location.href = "http://localhost:8080/mini-project/Home/UserList";
                 }
             }
         })
@@ -172,7 +170,7 @@ function checkEmail(email) {
     if (email.length == 0) {
         return 1
     } else {
-        const str = /^(([^<>()\[\]\\.,;:\s@'"]+(\.[^<>()\[\]\\.,;:\s'@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        const str = /^(([^<>()\[\]\\.,;:\s'@"]+(\.[^<>()\[\]\\.,;:\s@'"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         if(str.test(email)){
             return 3
         }
@@ -213,10 +211,6 @@ function checkAge(age) {
     if (age.length == 0) {
         return 1;
     } else{
-        const str = /^[0-9]+$/
-        if(!str.test(age)){
-            return 2;
-        }
         return 3;
     } 
 }

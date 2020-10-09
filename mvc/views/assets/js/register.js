@@ -196,11 +196,11 @@ function checkName(name) {
     } else if (name.length < 6) {
         return 2;
     } else {
-        const str = /[~`!@\.#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g
+        const str = /^[A-Za-z ]+$/
         if(str.test(name)){
-            return 3
+            return 4
         }
-        return 4
+        return 3
     } 
 }
 

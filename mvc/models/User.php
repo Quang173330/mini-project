@@ -5,6 +5,7 @@ class User extends DB{
         mysqli_query($this->con,$query);
     }
     function getByEmail($email){
+        $email = mysqli_real_escape_string($this->con, $email);
         $sql="SELECT * FROM users WHERE email='$email' ";
         return mysqli_query($this->con,$sql);
     }

@@ -45,7 +45,7 @@
           <div class="form-group">
             <label for="age">Age</label>
             <span id="mess_age" class="span"></span>
-            <input type="text" id="age" name="age" class="form-control" placeholder="Age">
+            <input type="date" id="age" name="age" class="form-control" placeholder="Age">
           </div>
           <div class="form-group">
             <button type="button" id="button" name="register" class="btn btn-success">Create User</button>

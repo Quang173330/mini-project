@@ -6,14 +6,10 @@ let frem = document.getElementById("rememberme");
 fbutton.addEventListener("click", sendRequest);
 fpass.addEventListener("blur", valiPass);
 femail.addEventListener("blur", valiEmail);
-function a() {
-    console.log("a")
-}
 function sendRequest() {
     let password = fpass.value;
     let email = femail.value;
     let rememberme = frem.checked;
-    console.log(rememberme)
     let cpass = false;
     let cemail = false;
     let vemail = checkEmail(email)
@@ -71,8 +67,6 @@ function valiPass() {
 }
 function valiEmail() {
     let email = femail.value;
-    email = regularemail(email);
-    femail.value = email
     let vali = checkEmail(email)
     if (vali == 1) {
         document.getElementById("mess_email").innerHTML = "Email is required"
@@ -92,7 +86,7 @@ function show() {
     }
 }
 function checkEmail(email) {
-    const str = /^(([^<>()\[\]\\.,;:\s@'"]+(\.[^<>()\[\]\\.,;:\s'@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    const str = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s'@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     if (email.length == 0) {
         return 1
     } else {
@@ -110,10 +104,6 @@ function checkPassword(password) {
     } else {
         return 3;
     }
-}
-function regularemail(str) {
-    let str1 = str.trim();
-    return str1.replace(/\s/g, '');
 }
 function regularname(str) {
     let str1 = str.trim();
