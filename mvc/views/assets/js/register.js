@@ -24,7 +24,7 @@ function valiName() {
     } else if(vali==2){
         document.getElementById("mess_name").innerHTML = "Please lengthen this text to 6 characters or more"
     } else if(vali==3){
-        document.getElementById("mess_name").innerHTML = "Name is invalid"
+        document.getElementById("mess_name").innerHTML = "Please enter correct name format"
 
     } else  {
         document.getElementById("mess_name").innerHTML = ""
@@ -61,7 +61,7 @@ function valiEmail() {
     if (vali == 1) {
         document.getElementById("mess_email").innerHTML = "Email is required"
     } else if(vali==2){
-        document.getElementById("mess_email").innerHTML = "Email is invalid"
+        document.getElementById("mess_email").innerHTML = "Please enter correct email format"
     } else {
         document.getElementById("mess_email").innerHTML = ""
     }
@@ -73,7 +73,7 @@ function valiAge() {
     if (vali == 1) {
         document.getElementById("mess_age").innerHTML = "Age is required"
     } else if(vali==2){
-        document.getElementById("mess_age").innerHTML = "Please type a number"
+        document.getElementById("mess_age").innerHTML = "Please enter correct date format"
     } else  {
         document.getElementById("mess_age").innerHTML = ""
     }
@@ -111,7 +111,7 @@ function Register() {
     if (vemail == 1) {
         document.getElementById("mess_email").innerHTML = "Email is required"
     } else if(vemail==2){
-        document.getElementById("mess_email").innerHTML = "Email is invalid"
+        document.getElementById("mess_email").innerHTML = "Please enter correct email format"
     } else {
         document.getElementById("mess_email").innerHTML = ""
         cemail=true
@@ -122,7 +122,7 @@ function Register() {
     } else if(vname==2){
         document.getElementById("mess_name").innerHTML = "Please lengthen this text to 6 characters or more"
     } else if(vname==3){
-        document.getElementById("mess_name").innerHTML = "Name is invalid"
+        document.getElementById("mess_name").innerHTML = "Please enter correct name format"
     } else  {
         document.getElementById("mess_name").innerHTML = ""
         cname=true
@@ -131,7 +131,7 @@ function Register() {
     if (vage == 1) {
         document.getElementById("mess_age").innerHTML = "Age is required"
     } else if(vage==2){
-        document.getElementById("mess_age").innerHTML = "Please type a number"
+        document.getElementById("mess_age").innerHTML = "Please enter correct date format"
     } {
         document.getElementById("mess_age").innerHTML = ""
         cage = true

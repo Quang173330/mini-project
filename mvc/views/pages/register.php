@@ -13,7 +13,7 @@
 <body>
     <div class="card ">
     <div class="card-header">
-      <h3 class='text-center'><i class="fas fa-sign-in-alt mr-2"></i>User login</h3>
+      <h3 class='text-center'><i class="fas fa-user-plus mr-2"></i>Register</h3>
     </div>
     <div class="card-body">
 

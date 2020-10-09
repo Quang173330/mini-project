@@ -25,7 +25,7 @@ function sendRequest() {
     if (vemail === 1) {
         document.getElementById("mess_email").innerHTML = "Email is required"
     } else if (vemail === 2) {
-        document.getElementById("mess_email").innerHTML = "Email is valid"
+        document.getElementById("mess_email").innerHTML = "Please enter correct email format"
     }
     else {
         document.getElementById("mess_email").innerHTML = ""
@@ -71,7 +71,7 @@ function valiEmail() {
     if (vali == 1) {
         document.getElementById("mess_email").innerHTML = "Email is required"
     } else if (vali == 2) {
-        document.getElementById("mess_email").innerHTML = "Email is invalid"
+        document.getElementById("mess_email").innerHTML = "Please enter correct email format"
     }
     else {
         document.getElementById("mess_email").innerHTML = ""

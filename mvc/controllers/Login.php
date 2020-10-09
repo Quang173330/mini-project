@@ -57,12 +57,12 @@
             } else{
                 if(!$this->validateEmail($_POST["email"])) {
                     $res_array['status']="mess_email";
-                    $res_array['mess']="Email is invalid";
+                    $res_array['mess']="Please enter correct email format";
                     echo json_encode($res_array);        
                 }
                     else if(!$this->validatePassword($_POST["password"])) {
                     $res_array['status']="mess_pass";
-                    $res_array['mess']="Pass is invalid";
+                    $res_array['mess']="Password has at least 6 characters";
                     echo json_encode($res_array);
                 }
             }   
