@@ -25,7 +25,7 @@ function valiName() {
     } else if(vali==2){
         document.getElementById("mess_name").innerHTML = "Please lengthen this text to 6 characters or more"
     } else if(vali==3){
-        document.getElementById("mess_name").innerHTML = "Name is invalid"
+        document.getElementById("mess_name").innerHTML = "Please enter correct name format"
 
     } else  {
         document.getElementById("mess_name").innerHTML = ""
@@ -194,11 +194,11 @@ function checkName(name) {
     } else if (name.length < 6) {
         return 2;
     } else {
-        const str = /[~`!@\.#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g
+        const str = /^[A-Za-z ]+$/
         if(str.test(name)){
-            return 3
+            return 4
         }
-        return 4
+        return 3
     } 
 }
 
