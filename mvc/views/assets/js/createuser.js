@@ -149,7 +149,7 @@ function Register() {
     if (cpass && cemail && crepass && cname && cage) {
         $.ajax({
             type: "POST",  //type of method
-            url: "http://localhost/mini-project/Register/registera",  //your page
+            url: "http://localhost:8080/mini-project/Register/registera",  //your page
             data: { name: name, email: email, password: password, age: age },// passing the values
             success: function (res) {
                 console.log(res)
@@ -159,7 +159,7 @@ function Register() {
                 if (status === "1") {
                     document.getElementById("mess_email").innerHTML = mess
                 } else {
-                    window.location.href = "http://localhost/mini-project/Home/UserList"
+                    window.location.href = "http://localhost:8080/mini-project/Home/UserList"
                 }
             }
         })
@@ -172,11 +172,11 @@ function checkEmail(email) {
     if (email.length == 0) {
         return 1
     } else {
-        const str = /[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\? ]/g
+        const str = /^(([^<>()\[\]\\.,;:\s@'"]+(\.[^<>()\[\]\\.,;:\s'@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         if(str.test(email)){
-            return 2
+            return 3
         }
-        return 3
+        return 2
     }
 }
 

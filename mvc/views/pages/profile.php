@@ -14,24 +14,24 @@ include 'header.php';
           <div class="form-group">
             <label for="name">Your name</label>
             <span id="mess_name" class="span"></span>
-            <input type="text" id="name" name="name" value="<?php echo $row["name"]; ?>" class="form-control">      
+            <input type="text" id="name" name="name" value="<?php echo $row["name"];?>" class="form-control">      
           </div>
           <div class="form-group">
             <label for="email">Email address</label>
             <span id="mess_email" class="span"></span>
-            <input type="email" id="email" name="email" value=" <?php echo $row["email"];?>" class="form-control">
+            <input type="email" id="email" name="email" value="<?php echo $row["email"];?>" class="form-control">
           </div>             
           <div class="form-group">
           <label for="email">Age</label>
           <span id="mess_age" class="span"></span>
-            <input type="text" id="age" name="age" value=" <?php echo $row["age"];?>" class="form-control">
+            <input type="text" id="age" name="age" value="<?php echo $row["age"];?>" class="form-control">
           </div>
           <div class="form-group">
             <button type="button" id="update" name="update" class="btn btn-success">Update</button>
-            <a class="btn btn-primary" href="http://localhost/mini-project/Home/cpass">Password change</a>
+            <a class="btn btn-primary" href="http://localhost:8080/mini-project/Home/cpass">Password change</a>
           </div>
         </form>
       </div>
     </div>
   </div>
-  <script src="http://localhost/mini-project/mvc/views/assets/js/profile.js"></script>
+  <script src="http://localhost:8080/mini-project/mvc/views/assets/js/profile.js"></script>

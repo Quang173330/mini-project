@@ -22,21 +22,43 @@ class Register extends Controller
             $result = $user->getByEmail($email);
             if ($result->num_rows > 0) {
   
-                $res_array['status']="1";
+                $res_array['status']="mess_email";
                 $res_array['mess']="Email is exist";
                 echo json_encode($res_array);
             } else {
                 $user->newUser($name, $password, $email, $age, 0);
                 $_SESSION["email"]=$email;
                 $_SESSION["password"]=$password;
-                $res_array['status']="2";
+                $res_array['status']="true";
                 $res_array['mess']="Success";
                 echo json_encode($res_array);
             }
         } else {
-            $res_array['status']="3";
-            $res_array['mess']=$this->validateName($_POST["name"]);
+            if(!$this->validateName($_POST["name"])) {
+            $res_array['status']="mess_name";
+            $res_array['mess']="Name is invalid";
+            echo json_encode($res_array);
+
+            }
+            else if(!$this->validateEmail($_POST["email"])) {
+            $res_array['status']="mess_email";
+            $res_array['mess']="Email is invalid";
+            echo json_encode($res_array);        
+        }
+            else if(!$this->validatePassword($_POST["password"])) {
+            $res_array['status']="mess_pass";
+            $res_array['mess']="Pass is invalid";
             echo json_encode($res_array);
         }
+        else if(!$this->validateDate($_POST["age"])) {
+            $res_array['status']="mess_age";
+            $res_array['mess']="Date is invalid";
+            echo json_encode($res_array);
+        }
+        }
+
+
     }
+    
 }
+
