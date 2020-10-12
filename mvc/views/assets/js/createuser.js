@@ -147,7 +147,7 @@ function Register() {
     if (cpass && cemail && crepass && cname && cage) {
         $.ajax({
             type: "POST",  //type of method
-            url: "http://localhost:8080/mini-project/Register/registera",  //your page
+            url: "http://localhost:8080/mini-project/Register/adduser",  //your page
             data: { name: name, email: email, password: password, age: age },// passing the values
             success: function (res) {
                 console.log(res)

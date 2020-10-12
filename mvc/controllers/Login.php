@@ -45,7 +45,7 @@
 
                         } else{
                             $resarray["status"]="mess_pass";
-                            $resarray["mess"]="Password not matching";
+                            $resarray["mess"]="Wrong Password";
                             echo json_encode($resarray);
                         }
                     

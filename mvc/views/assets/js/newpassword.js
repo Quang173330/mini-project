@@ -41,6 +41,7 @@ function submit () {
                 if (status === "false") {
                     document.getElementById("mess_new").innerHTML = mess
                 } else {
+                    alert("Update Sucessful");
                     window.location.href = "http://localhost:8080/mini-project/Home/ViewUser/"+id;
                 }
             }

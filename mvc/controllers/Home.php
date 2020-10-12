@@ -79,7 +79,7 @@ class Home extends Controller
         if($check==="admin"){
             $this->view("adduser");
         } else if($check==="user"){
-            echo "Cút";
+            echo "Not have access";
         }
         else{
             header("Location:http://localhost:8080/mini-project/Login/a");
@@ -98,7 +98,7 @@ class Home extends Controller
             $result=$user->getAll();
             $this->view("userlist",["data"=>$result]);
         } else if($check==="user"){
-            echo "Cút";
+            echo "Not have access";
         }
         else{
             header("Location:http://localhost:8080/mini-project/Login/a");
@@ -111,7 +111,7 @@ class Home extends Controller
             $result=$user->getById($id);
             $this->view("userprofile",["data"=>$result]);
         } else if($check==="user"){
-            echo "Cút";
+            echo "Not have access";
         }
         else{
             header("Location:http://localhost:8080/mini-project/Login/a");
